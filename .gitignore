@@ -29,7 +29,8 @@ override.tf.json
 # example: *tfplan*
 tf.plan
 plan
-tf.destroy
+apply.tfplan
+destroy.tfplan
 
 # PyCharm IDE
 .idea/
