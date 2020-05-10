@@ -27,3 +27,9 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+tf.plan
+plan
+tf.destroy
+
+# PyCharm IDE
+.idea/
