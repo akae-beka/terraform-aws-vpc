@@ -151,6 +151,6 @@ resource "aws_route" "main" {
   count = var.create_vpc ? 1 : 0
 
   route_table_id         = aws_vpc.main[0].main_route_table_id
-  gateway_id             = aws_internet_gateway[count.index].main.id
+  gateway_id             = aws_internet_gateway[0].main.id
   destination_cidr_block = var.rtb_cidr_block
 }
