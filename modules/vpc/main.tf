@@ -52,6 +52,8 @@ resource "aws_vpc_dhcp_options" "main" {
 }
 
 resource "aws_vpc_dhcp_options_association" "main" {
+  count = var.create_vpc ? 1 : 0
+
   dhcp_options_id = aws_vpc_dhcp_options.main[0].id
   vpc_id          = aws_vpc.main[0].id
 }
@@ -88,6 +90,8 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_internet_gateway" "main" {
+  count = var.create_vpc ? 1 : 0
+
   vpc_id = aws_vpc.main[0].id
 
   tags = merge(
