@@ -19,3 +19,21 @@ module "aws_vpc" {
   cidr_block = "10.0.0.0/16"
 }
 ```
+
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| aws | >= 2.5 |
+
+## Providers
+
+No provider.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| cidr\_block | The CIDR block for the VPC. | `string` | n/a | yes |
+| create | Boolean that controls whether or not to create all vpc resources. | `bool` | n/a | yes |
