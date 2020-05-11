@@ -26,8 +26,8 @@ resource "aws_vpc" "main" {
   count = var.create_vpc && var.cidr_block != null ? 1 : 0
 
   cidr_block           = var.cidr_block
-  enable_dns_hostnames = var.enable_dns_hostnames
   enable_dns_support   = var.enable_dns_support
+  enable_dns_hostnames = var.enable_dns_hostnames
 
   tags = merge(
     local.tags,
@@ -54,8 +54,8 @@ resource "aws_vpc_dhcp_options" "main" {
 resource "aws_vpc_dhcp_options_association" "main" {
   count = var.create_vpc ? 1 : 0
 
-  dhcp_options_id = aws_vpc_dhcp_options.main[0].id
   vpc_id          = aws_vpc.main[0].id
+  dhcp_options_id = aws_vpc_dhcp_options.main[0].id
 }
 
 resource "aws_subnet" "private" {
