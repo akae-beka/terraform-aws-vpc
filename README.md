@@ -5,7 +5,7 @@
 Terraform module to create Amazon VPC
 
 
-### Usage
+## Usage
 
 ```
 provider "aws" {
@@ -37,3 +37,7 @@ No provider.
 |------|-------------|------|---------|:--------:|
 | cidr\_block | The CIDR block for the VPC. | `string` | n/a | yes |
 | create | Boolean that controls whether or not to create all vpc resources. | `bool` | n/a | yes |
+
+## License
+
+This code is released under the Apache 2.0 License. [LICENSE](https://github.com/akae-beka/terraform-aws-vpc/blob/master/LICENSE)
