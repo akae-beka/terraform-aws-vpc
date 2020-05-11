@@ -8,15 +8,15 @@ variable "create_vpc" {
   type        = bool
 }
 
-variable "cidr_block" {
-  description = "The CIDR block for the VPC."
-  type        = string
-}
-
 variable "az" {
   description = "Number of availability zones"
   type        = list(number)
   default     = [1, 2, 3]
+}
+
+variable "cidr_block" {
+  description = "The CIDR block for the VPC."
+  type        = string
 }
 
 variable "enable_dns_hostnames" {
@@ -41,6 +41,12 @@ variable "domain_name_servers" {
   description = "List of name servers to configure in `/etc/resolv.conf.`"
   type        = list(string)
   default     = ["AmazonProvidedDNS"]
+}
+
+variable "map_public_ip_on_launch" {
+  description = "Specify true to indicate that instances launched into the subnet should be assigned a public IP address."
+  type        = bool
+  default     = true
 }
 
 variable "rtb_cidr_block" {
