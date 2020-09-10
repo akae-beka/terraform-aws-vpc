@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 module "aws_vpc" {
-  source = "git::github.com/akae-beka/terraform-aws-vpc"
+  source = "git::github.com/akae-beka/terraform-aws-vpc?ref=developer-0.13"
 
   create     = true
   cidr_block = "10.0.0.0/16"
