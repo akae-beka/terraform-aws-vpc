@@ -24,8 +24,8 @@ module "aws_vpc" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
-| aws | >= 2.5 |
+| terraform | >= 0.13 |
+| aws | >= 3.4 |
 
 ## Providers
 
