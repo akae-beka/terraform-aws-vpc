@@ -18,9 +18,7 @@ locals {
   }
 }
 
-data "aws_availability_zones" "main" {
-  state = "available"
-}
+data "aws_availability_zones" "main" {}
 
 resource "aws_vpc" "main" {
   count = var.create_vpc && var.cidr_block != null ? 1 : 0
