@@ -1,12 +1,3 @@
-# ----------------------------------------------------------------------------------------------------------------------
-# REQUIRE A SPECIFIC TERRAFORM VERSION OR HIGHER
-# This module has been updated with 0.12 syntax, which means it is no longer compatible with any versions below 0.12.
-# ----------------------------------------------------------------------------------------------------------------------
-
-terraform {
-  required_version = ">= 0.13"
-}
-
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE AWS VPC WITH NETWORK RESOURCES
 # ---------------------------------------------------------------------------------------------------------------------
@@ -18,14 +9,16 @@ locals {
   }
 }
 
-data "aws_availability_zones" "main" {}
-
 resource "aws_vpc" "main" {
   count = var.create_vpc && var.cidr_block != null ? 1 : 0
 
-  cidr_block           = var.cidr_block
-  enable_dns_support   = var.enable_dns_support
-  enable_dns_hostnames = var.enable_dns_hostnames
+  cidr_block                       = var.cidr_block
+  instance_tenancy                 = var.instance_tenancy
+  enable_dns_support               = var.enable_dns_support
+  enable_dns_hostnames             = var.enable_dns_hostnames
+  enable_classiclink               = var.enable_classiclink
+  enable_classiclink_dns_support   = var.enable_classiclink_dns_support
+  assign_generated_ipv6_cidr_block = var.assign_generated_ipv6_cidr_block
 
   tags = merge(
     local.tags,
